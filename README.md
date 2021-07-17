@@ -46,7 +46,7 @@ func (o *OnRegisteredUser) Handle(arg interface{}) {
     fmt.Printf("sent email to %s(%s)", v.Name, v.Email)
 }
 
-type OnRegisterUserArg struct {
+type OnRegisteredUserArg struct {
 	Email string
 	Name string
 }
@@ -58,7 +58,7 @@ func main() {
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
     	// register a new user
     	
-    	go obs.Notify(&OnRegisterUserArg{
+    	go obs.Notify(&OnRegisteredUserArg{
     	    Email: "...",
     	    Name: "...",
         })
